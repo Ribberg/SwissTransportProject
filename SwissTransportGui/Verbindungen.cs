@@ -11,59 +11,52 @@ using SwissTransport;
 
 namespace SwissTransport
 {
-    public partial class Verbindungen : UserControl
-    {
+        public partial class Verbindungen : UserControl
+        {
+        Formatter formatter = new Formatter();
         public ITransport transport = new Transport();
         public Verbindungen()
         {
             InitializeComponent();
         }
-
-        private void Combosearch(ComboBox cb)
+        public string[] Splitter(string value, char[] sep)
         {
-            string cbtext = cb.Text;
-
-            if (cbtext.Length >= 3)
-           {
-                Stations stations = new Stations();
-                stations = transport.GetStations(cbtext + ",");
-                cb.Items.Clear();
-                foreach(Station s in stations.StationList)
-                {
-                    cb.Items.Add(s.Name);
-                }
-           }
-      }
+            string[] word = value.Split(sep);
+            return word;
+        }
 
         public void Connection()
         {
-            char separators = ':';
-            var connections = transport.GetConnections(comboBox1.Text, comboBox2.Text);
+            string date = "&date=" + dateTimePicker1.Value.Year + "-" + dateTimePicker1.Value.Month + "-" + dateTimePicker1.Value.Day;
+            string time = "&time=" + dateTimePicker1.Value.Hour + ":" + dateTimePicker1.Value.Minute;
+            listBox1.Items.Clear();
+            listBox1.Items.Add(" " + "Startstation" + "\t" + "Endstation" + "\t" + "Abfahrt" + "\t" + "Ankunft" + "\t" + "Dauer");
+            var connections = transport.GetConnections(DepartureBox.Text, ArrivalBox.Text,  date, time);
             foreach (Connection c in connections.ConnectionList)
-            {
-                listBox1.Items.Add(" " + c.From.Station.Name + " X " + c.To.Station.Name + c.From.Departure);
-            }
+        {
 
+            string departure = formatter.Dateformatter(c.From.Departure);
+            string arrival = formatter.Dateformatter(c.To.Arrival);
+            char[] sepdur = { ':' };
+            string[] duration = formatter.Splitter(c.Duration, sepdur);
+
+            listBox1.Items.Add(" " + c.From.Station.Name + "\t\t" + c.To.Station.Name + "\t" + departure + "\t" + arrival + "\t" + duration[1] + " Min");
+        }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             Connection();
         }
-        private void comboBox1_TextUpdate(object sender, EventArgs e)
+
+        private void DepartureBox_TextUpdate_1(object sender, EventArgs e)
         {
-            Combosearch(comboBox1);
+            formatter.Combosearch(DepartureBox);
         }
 
-        private void comboBox2_TextUpdate_1(object sender, EventArgs e)
+        private void ArrivalBox_TextUpdate(object sender, EventArgs e)
         {
-            Combosearch(comboBox2);
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("For support please contact 0763204535");
+            formatter.Combosearch(ArrivalBox);
         }
     }
 }

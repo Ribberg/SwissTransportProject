@@ -30,43 +30,45 @@
         {
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnverbindungen = new System.Windows.Forms.Button();
+            this.btnfahrplan = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.Location = new System.Drawing.Point(12, 71);
+            this.panel1.Location = new System.Drawing.Point(2, 57);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(522, 394);
-            this.panel1.TabIndex = 24;
+            this.panel1.Size = new System.Drawing.Size(568, 437);
+            this.panel1.TabIndex = 39;
             // 
-            // button2
+            // btnverbindungen
             // 
-            this.button2.Location = new System.Drawing.Point(12, 12);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(87, 23);
-            this.button2.TabIndex = 36;
-            this.button2.Text = "Verbindungen";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click_1);
+            this.btnverbindungen.Location = new System.Drawing.Point(12, 12);
+            this.btnverbindungen.Name = "btnverbindungen";
+            this.btnverbindungen.Size = new System.Drawing.Size(85, 22);
+            this.btnverbindungen.TabIndex = 40;
+            this.btnverbindungen.Text = "Verbindungen";
+            this.btnverbindungen.UseVisualStyleBackColor = true;
+            this.btnverbindungen.Click += new System.EventHandler(this.btnverbindungen_Click);
             // 
-            // button1
+            // btnfahrplan
             // 
-            this.button1.Location = new System.Drawing.Point(105, 12);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(87, 23);
-            this.button1.TabIndex = 37;
-            this.button1.Text = "Fahrplan";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnfahrplan.Location = new System.Drawing.Point(103, 12);
+            this.btnfahrplan.Name = "btnfahrplan";
+            this.btnfahrplan.Size = new System.Drawing.Size(85, 22);
+            this.btnfahrplan.TabIndex = 41;
+            this.btnfahrplan.Text = "Fahrplan";
+            this.btnfahrplan.UseVisualStyleBackColor = true;
+            this.btnfahrplan.Click += new System.EventHandler(this.btnfahrplan_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Firebrick;
             this.ClientSize = new System.Drawing.Size(572, 506);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btnfahrplan);
+            this.Controls.Add(this.btnverbindungen);
             this.Controls.Add(this.panel1);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -77,8 +79,8 @@
         #endregion
         private System.Windows.Forms.ColorDialog colorDialog1;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnverbindungen;
+        private System.Windows.Forms.Button btnfahrplan;
     }
 }
 
