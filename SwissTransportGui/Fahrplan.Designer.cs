@@ -89,13 +89,14 @@
             this.listBoxPlan1.FormattingEnabled = true;
             this.listBoxPlan1.Location = new System.Drawing.Point(7, 59);
             this.listBoxPlan1.Name = "listBoxPlan1";
-            this.listBoxPlan1.Size = new System.Drawing.Size(230, 290);
+            this.listBoxPlan1.Size = new System.Drawing.Size(552, 290);
             this.listBoxPlan1.TabIndex = 44;
             // 
             // Fahrplan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Firebrick;
             this.Controls.Add(this.listBoxPlan1);
             this.Controls.Add(this.btnsearch1);
             this.Controls.Add(this.label1);
