@@ -24,7 +24,6 @@ namespace SwissTransport
             string[] word = value.Split(sep);
             return word;
         }
-
         public void Connection()
         {
             string date = "&date=" + dateTimePicker1.Value.Year + "-" + dateTimePicker1.Value.Month + "-" + dateTimePicker1.Value.Day;
@@ -34,7 +33,6 @@ namespace SwissTransport
             var connections = transport.GetConnections(DepartureBox.Text, ArrivalBox.Text,  date, time);
             foreach (Connection c in connections.ConnectionList)
         {
-
             string departure = formatter.Dateformatter(c.From.Departure);
             string arrival = formatter.Dateformatter(c.To.Arrival);
             char[] sepdur = { ':' };
@@ -43,17 +41,14 @@ namespace SwissTransport
             listBox1.Items.Add(" " + c.From.Station.Name + "\t\t" + c.To.Station.Name + "\t" + departure + "\t" + arrival + "\t" + duration[1] + " Min");
         }
         }
-
         private void button1_Click(object sender, EventArgs e)
         {
             Connection();
         }
-
         private void DepartureBox_TextUpdate_1(object sender, EventArgs e)
         {
             formatter.Combosearch(DepartureBox);
         }
-
         private void ArrivalBox_TextUpdate(object sender, EventArgs e)
         {
             formatter.Combosearch(ArrivalBox);
